@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa4789de-a307-4c45-9838-7b23b61d696f" name="Changes" comment="power-points">
-      <change beforePath="$PROJECT_DIR$/BIG DATA TECHNOLOGY PRESENTATION (1).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BIG DATA TECHNOLOGY PRESENTATION.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/6/16260c3aed5a4ab4547c567b59c571064f496d7e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/5/550b5d803cc4174f9e0a21e41d3249fb18eb1f77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/d/6d668864914a61195019bd146beac2462583a9ca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/1/c17ca5446ac077c157a5549c266b6c33db46a816" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/6/16260c3aed5a4ab4547c567b59c571064f496d7e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/5/550b5d803cc4174f9e0a21e41d3249fb18eb1f77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/d/6d668864914a61195019bd146beac2462583a9ca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/1/c17ca5446ac077c157a5549c266b6c33db46a816" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +157,7 @@
       <updated>1696195094863</updated>
       <workItem from="1696195096008" duration="7894000" />
       <workItem from="1696309484956" duration="4346000" />
-      <workItem from="1696464169285" duration="2721000" />
+      <workItem from="1696464169285" duration="4939000" />
     </task>
     <task id="LOCAL-00001" summary="pre-final">
       <created>1696196626017</created>
