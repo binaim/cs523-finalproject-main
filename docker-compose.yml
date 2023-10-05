@@ -1,0 +1,88 @@
+version: "2"
+services:
+  spark:
+    image: docker.io/bitnami/spark:3.3
+    container_name: spark
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+      - SPARK_USER=spark
+    ports:
+      - "8181:8080"
+      - "7077:7077"
+    networks:
+      - cluster_network
+
+  zookeeper:
+    container_name: zookeeper
+    image: confluentinc/cp-zookeeper:7.0.9
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - cluster_network
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.0.9
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - 9092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - cluster_network
+
+  hbase:
+    image: jowilf/hbase:0.0.1
+    build: ./hbase
+    container_name: hbase
+    depends_on:
+      - zookeeper
+    networks:
+      - cluster_network
+    ports:
+      - "16010:16010"
+      - "16020:16020"
+      - "9090:9090"
+
+  dashboard:
+    image: jowilf/dashboard:0.0.1
+    build: ./dashboard
+    container_name: dashboard
+    depends_on:
+      - stream
+      - hbase
+    environment:
+      HBASE_URL: hbase
+      KAFKA_URL: kafka:29092
+      KAFKA_GROUP_ID: dashboard
+      THREAD_DAEMON: "false"
+    networks:
+      - cluster_network
+    ports:
+      - "8050:8050"
+
+  stream:
+    image: jowilf/stream:0.0.1
+    build: ./stream
+    container_name: stream
+    networks:
+      - cluster_network
+    depends_on:
+      - kafka
+
+networks:
+  cluster_network:
+    name: kafka-spark-hbase
